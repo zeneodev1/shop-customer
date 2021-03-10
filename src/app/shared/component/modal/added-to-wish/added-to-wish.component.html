@@ -1,0 +1,23 @@
+<div class="modal-container">
+
+  <div class="modal">
+    <p class="modal__header">Added To Your Wish list</p>
+    <div class="modal__item">
+      <div class="modal__item__img">
+        <img class="modal__item__img-img" src="{{wish.product.images[0]}}" alt="a tablet">
+      </div>
+      <div class="modal__item__info">
+        <a href="#" class="modal__info__title">{{wish.product.title}}</a>
+        <p class="">has been added to your wishlist.</p>
+      </div>
+    </div>
+    <div class="buttons-wrapper">
+      <button (click)="closeWishModal()" class="modal__button bt-primary">Continue Shopping</button>
+    </div>
+    <button (click)="closeWishModal()" class="modal__close-button">
+      <i class="material-icons">
+        close
+      </i>
+    </button>
+  </div>
+</div>

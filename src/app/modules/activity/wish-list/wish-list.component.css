@@ -1,0 +1,20 @@
+
+.wishlist_header {
+  display: flex;
+  align-items: center;
+  margin: 30px 0 20px 0;
+}
+
+
+.wishlist_header_btns {
+  margin-left: auto;
+  display: flex;
+}
+
+.wishlist_header_btns .wishlist_header_btn {
+  margin-left: 10px;
+  padding: 13px 30px;
+  height: 41px;
+  display: flex;
+  align-items: center;
+}

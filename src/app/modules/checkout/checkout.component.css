@@ -1,0 +1,164 @@
+
+.main__p {
+  margin: 1.5em 0;
+  font-size: 0.95rem;
+  opacity: 0.8;
+}
+
+.form-steps {
+  margin-right: 3.5em;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.steps {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 1em;
+  height: 30px;
+  margin-top: 30px;
+}
+
+.step {
+  color: #3f3f3f4d;
+  font-weight: 500;
+  border-bottom: 2px solid #3f3f3f4d;
+  width: 100%;
+  font-size: 13px;
+  text-align: center;
+  padding-bottom: 1em;
+}
+
+
+
+.step.selected {
+  color: var(--secondary);
+  border-bottom-color: var(--secondary);
+}
+
+.step__title {
+  display: none;
+}
+
+
+/* ORDER-SUMMARY */
+
+.order-summary {
+  background: #f6f6f6;
+  padding: 2em;
+  border: 1px solid #e1e1e1;
+  border-radius: 3px;
+}
+
+.summary__title {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+summary::marker {
+  content: '';
+}
+
+summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0.5em 0;
+  cursor: pointer;
+}
+
+.summary__item {
+  display: flex;
+  border-top: 1px solid #e6e6e6;
+  border-bottom: 1px solid #e6e6e6;
+  padding: 1em 0;
+}
+
+.summary__item__img img {
+  width: 90px;
+  object-fit: cover;
+}
+
+.summary__item__info {
+  margin: 0 0.5em;
+}
+
+.summary__item__title {
+  text-decoration: none;
+  color: #0066c0;
+  font-size: 15px;
+}
+
+.summary__item__amount {
+  margin-top: 2em;
+  font-size: 15px;
+}
+
+.summary__item__price {
+  margin-left: auto;
+  font-size: 14px;
+}
+
+.summary__subtotal,
+.summary__shipping {
+  margin: 1em 0;
+  font-size: 16px;
+}
+
+.summary__subtotal p,
+.summary__shipping p,
+.summary__footer p {
+  display: flex;
+  justify-content: space-between;
+}
+
+.shipping-method {
+  font-size: 15px;
+  margin-top: 0.5em;
+  display: block;
+  opacity: 0.8;
+}
+
+.summary__footer {
+  font-size: 17px;
+  font-weight: 500;
+}
+
+
+/* ======MEDIA QUERIES */
+
+@media (min-width: 800px) {
+  .main__header {
+    margin-top: 30px;
+    margin-bottom: 25px;
+  }
+  .main {
+
+    margin-top: 14em;
+  }
+
+  .step__title {
+    display: unset;
+  }
+}
+
+@media (min-width: 1200px) {
+  .flex {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .form-steps {
+    width: 65%;
+  }
+
+  .order-summary {
+    width: 35%;
+    height: 100%;
+  }
+
+  .submit-buttons {
+    margin-bottom: 0;
+  }
+}

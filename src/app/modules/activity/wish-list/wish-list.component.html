@@ -1,0 +1,39 @@
+<div *ngIf="!loading">
+
+  <div class="wishlist_header">
+
+    <h2 class="wishlist_header_title">
+      My Wish List
+    </h2>
+
+    <div class="wishlist_header_btns">
+      <button (click)="saveAll()" class="wishlist_header_btn bt-primary">
+        Update Wish List
+      </button>
+      <button (click)="addAllToCart()" class="wishlist_header_btn bt-primary">
+        <span *ngIf="!addingToCart">Add All To Cart</span>
+        <span style="display: flex; align-items: center; font-size: 13px" *ngIf="addingToCart"><app-spinner style="transform: scale(0.7); margin-right: 5px"></app-spinner> adding...</span>
+      </button>
+    </div>
+
+  </div>
+
+  <div class="wish_list_items">
+    <div *ngFor="let w of wishList; let i = index" >
+      <app-wish-item
+        (increaseAmount)="increaseCart(i)"
+        (decreaseAmount)="decreaseCart(i)"
+        [wish]="w"></app-wish-item>
+    </div>
+  </div>
+
+  <div style="height: 350px; display: flex; align-items: center; justify-content: center" *ngIf="wishList.length == 0">
+    <p>You have no products in wishlist</p>
+  </div>
+
+</div>
+
+
+<div style="height: 450px; display: flex; align-items: center; justify-content: center" *ngIf="loading">
+  <span class="dots-loader"></span>
+</div>

@@ -1,0 +1,25 @@
+<div *ngIf="!loading">
+  <carousel [autoplayInterval]="3000" style="z-index: 1" [autoplay]="true" [dots]="true" minSwipeDistance="50"
+            height="100" cellWidth="100%" [images]="[
+            {path: 'http://blueskytechmage.com/ayo/pub/media/slidebanner/s/l/slider72_1.png'},
+            {path: 'http://blueskytechmage.com/ayo/pub/media/slidebanner/s/l/slider73_2.png'},
+            {path: 'http://blueskytechmage.com/ayo/pub/media/slidebanner/s/l/slider71.png'}
+            ]">
+
+  </carousel>
+  <div class="departements">
+    <div *ngFor="let department of departments" class="wrapper">
+      <div class="departement">
+        <p class="departement__title">{{department.name}}</p>
+        <a style="width: 100%; display: flex; overflow-x: hidden; justify-content: center" routerLink="/products/{{department.shortCut}}"><img src="{{department.images[0]}}" alt="Computers & Accessories" class="departement__img"></a>
+        <a routerLink="/products/{{department.shortCut}}" class="departement__link">Shop now</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div style="height: 450px; display: flex; align-items: center; justify-content: center" *ngIf="loading">
+  <span class="dots-loader"></span>
+</div>
+

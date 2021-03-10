@@ -1,0 +1,94 @@
+<div style="margin-top: 30px">
+
+  <div *ngIf="!isLoadingPage">
+    <div class="path">
+      <a href="#" class="path__link">Home</a> <span class="path__arrow"> > </span> <span class="path__link path__title">{{department.name}}</span>
+    </div>
+    <div class="grid-warapper">
+      <aside class="aside">
+        <div class="filter">
+          <div class="categories">
+            <p class="categories__title">Categories</p>
+            <a style="cursor: pointer" (click)="clearCategory()">{{department.name}}</a>
+            <ul class="categories__list">
+              <li class="categories__item" *ngFor="let category of department.categories">
+                <a [class.selected]="category.id == filters.cId" class="categories__link" style="cursor: pointer" *ngIf="filters.cId == null || filters.cId == category.id" (click)="changeCategory(category)" >{{category.name}}</a>
+              </li>
+            </ul>
+          </div>
+          <p style="margin-top: 2em;" class="filter__title">Price</p>
+          <div style="display: flex; align-items: center; margin: 0 -10px">
+            <div class="filter__input-wrapper" style="margin: 0 10px">
+              <label class="filter__label" for="min"></label>
+              <input (keyup.enter)="changeQueryParams()" [(ngModel)]="filters.min" placeholder="Min" [min]="1" class="filter__input" type="number" name="min" id="min" min="0">
+            </div>
+            <div class="filter__input-wrapper" style="margin: 0 10px">
+              <label class="filter__label" for="max"></label>
+              <input (keyup.enter)="changeQueryParams()" [(ngModel)]="filters.max" placeholder="Max" [min]="1" class="filter__input" type="number" name="max" id="max" min="0">
+            </div>
+          </div>
+
+          <div class="condition">
+            <p class="condition__title">Condition</p>
+            <div class="condition__input-wrapper">
+              <input (change)="changeQueryParams()" [value]="null" [(ngModel)]="filters.condition" name="condition" type="radio" id="all">
+              <label for="all">Everything</label>
+            </div>
+            <div  class="condition__input-wrapper">
+              <input (change)="changeQueryParams()" value="Used" [(ngModel)]="filters.condition" name="condition" type="radio" id="used">
+              <label for="used">Used</label>
+            </div>
+            <div class="condition__input-wrapper">
+              <input (change)="changeQueryParams()" value="New" [(ngModel)]="filters.condition"  name="condition" type="radio" id="new">
+              <label for="new">New</label>
+            </div>
+          </div>
+        </div>
+      </aside>
+      <div class="cards-grid-wrapper">
+        <div class="modifiers">
+          <button (click)="changeDisplayList(0)" [class.selected]="displayType == 0" class="cards-grid-bt">
+            <i class="material-icons">
+              view_comfy
+            </i>
+          </button>
+          <button (click)="changeDisplayList(1)" [class.selected]="displayType == 1" class="cards-grid-bt">
+            <i class="material-icons">
+              view_list
+            </i>
+          </button>
+          <span class="results"> Showing 1-2 of 2 results</span>
+          <div class="sort">
+            <span class="sort__text">sort by:</span>
+            <select [(ngModel)]="filters.sortBy" (change)="changeSort($event)" class="sort__select" name="sort" id="sort">
+              <option value="id">Position</option>
+              <option value="price">Price</option>
+              <option value="title">Product Name</option>
+            </select>
+            <select [(ngModel)]="filters.order" (change)="changeSort($event)" class="sort__select" name="sort" id="order">
+              <option value="ASC">Ascendant</option>
+              <option value="DESC">Descendant</option>
+            </select>
+          </div>
+        </div>
+        <div *ngIf="!isLoadingProducts" [class.cards-grid]="displayType == 0">
+          <div *ngFor="let product of products" class="card-wrapper">
+            <app-product-card [product]="product" [displayType]="displayType"></app-product-card>
+          </div>
+        </div>
+        <div style="height: 300px; display: flex; align-items: center; justify-content: center" *ngIf="products.length == 0 && !isLoadingProducts">
+          There is no products found
+        </div>
+        <div *ngIf="isLoadingProducts" style="height: 300px; display: flex; align-items: center; justify-content: center">
+          <span class="dots-loader"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="height: 450px; display: flex; align-items: center; justify-content: center" *ngIf="isLoadingPage">
+    <span class="dots-loader"></span>
+  </div>
+
+</div>
+

@@ -1,0 +1,38 @@
+<div [class.card__list]="displayType == 1" class="card">
+  <div class="card__header">
+    <a>
+      <img routerLink="/product/{{product.shortCut}}" src="{{product.images[0]}}" alt="tablet" class="card__img">
+    </a>
+    <div *ngIf="displayType == 0">
+      <button (click)="addToWishList()" class="fav-bt">
+        <i class="material-icons">
+          favorite_border
+        </i>
+      </button>
+      <button style="display: flex; justify-content: center" (click)="addToCart()" class="card__bt bt-primary">
+        <span *ngIf="!addingToCart">Add To Cart</span>
+        <span style="display: flex; align-items: center; font-size: 13px" *ngIf="addingToCart"><app-spinner style="transform: scale(0.7); margin-right: 5px"></app-spinner> adding...</span>
+      </button>
+    </div>
+
+    <span class="card__tag">New</span>
+  </div>
+  <div class="card__body">
+    <a routerLink="/product/{{product.shortCut}}" class="card__body__title">{{product.title}}</a>
+    <p class="card__price">{{product.price | currency}}</p>
+    <div style="display: flex; align-items: center" *ngIf="displayType == 1">
+
+      <button style="display: flex; justify-content: center; margin-right: 20px" (click)="addToCart()" class="card__bt bt-primary">
+        <span style="font-size: 14px" *ngIf="!addingToCart">Add To Cart</span>
+        <span style="display: flex; align-items: center; font-size: 13px" *ngIf="addingToCart"><app-spinner style="transform: scale(0.7); margin-right: 5px"></app-spinner> adding...</span>
+      </button>
+      <button class="fav-bt">
+        <i class="material-icons">
+          favorite_border
+        </i>
+      </button>
+    </div>
+  </div>
+</div>
+<app-added-to-cart (closeModal)="closeCartModal()" *ngIf="showCartModal" [cartItem]="cartItem"></app-added-to-cart>
+<app-added-to-wish (closeModal)="closeWishModal()" *ngIf="showWishModal" [wish]="wish"></app-added-to-wish>

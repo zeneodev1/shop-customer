@@ -1,0 +1,40 @@
+<div class="login-wrapper">
+  <h1 class="login-title">Login to your account</h1>
+  <div>
+    <form [formGroup]="loginForm" class="form">
+      <div class="form__wrapper">
+        <div style="margin-bottom: 20px">If you have an account, Login with your email address.</div>
+        <div style="margin-bottom: 10px" *ngIf="loginError" class="error">Email or password doesn't exist.</div>
+        <div class="form__row">
+          <label for="email" class="form__label">Email <span class="required">*</span></label>
+          <input formControlName="email" type="email" id="email" class="form__input" required>
+          <div *ngIf="triedToSubmit && email != null && email.errors != null">
+            <p *ngIf="email.errors.required" class="form__input__helper">This field is required</p>
+            <p *ngIf="email.errors.email" class="form__input__helper">Please enter a valid email address</p>
+          </div>
+        </div>
+        <div class="form__row">
+          <label for="password" class="form__label">Password <span class="required">*</span></label>
+          <input formControlName="password" type="password" id="password" class="form__input" required>
+          <div *ngIf="triedToSubmit && password != null && password.errors != null">
+            <p *ngIf="password.errors.required" class="form__input__helper">This field is required</p>
+          </div>
+        </div>
+        <div class="form__row">
+          <button (click)="login()" class="form__submit bt-primary">
+            <span *ngIf="!isSubmitting">Login</span>
+            <app-spinner *ngIf="isSubmitting" style="transform: scale(1)"></app-spinner>
+          </button>
+        </div>
+
+        <div class="form__divider"></div>
+
+        <div style="margin-bottom: 20px">If you don't have an account, Create a new one for free.</div>
+        <div class="form__row">
+          <button routerLink="/auth/register" type="button" class="form__submit bt-primary">Create an account</button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+</div>

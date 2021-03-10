@@ -1,0 +1,76 @@
+<div style="display: flex; justify-content: center">
+  <div class="register-wrapper">
+    <h1 class="login-title">Create New Customer Account</h1>
+    <form [formGroup]="registerForm" class="form">
+      <div class="form__wrapper">
+        <div class="form__part-one">
+          <p class="form__subheader">Personal Information</p>
+          <div class="form__row">
+            <label for="first-name" class="form__label">First Name <span class="required">*</span></label>
+            <input formControlName="firstName" type="text" id="first-name" class="form__input" required>
+            <div *ngIf="triedToSubmit && firstName != null && firstName.errors != null">
+              <p *ngIf="firstName.errors.required" class="form__input__helper">This field is required</p>
+            </div>
+          </div>
+          <div class="form__row">
+            <label for="last-name" class="form__label">Last Name <span class="required">*</span></label>
+            <input formControlName="lastName" type="text" id="last-name" class="form__input" required>
+            <div *ngIf="triedToSubmit && lastName != null && lastName.errors != null">
+              <p *ngIf="lastName.errors.required" class="form__input__helper">This field is required</p>
+            </div>
+          </div>
+        </div>
+        <div class="form__part-two">
+          <p class="form__subheader">Sign-in Information</p>
+          <div class="form__row">
+            <label for="email" class="form__label">Email <span class="required">*</span></label>
+            <input formControlName="email" type="email" id="email" class="form__input" required>
+            <div *ngIf="triedToSubmit && email != null && email.errors != null">
+              <p *ngIf="email.errors.required" class="form__input__helper">This field is required</p>
+              <p *ngIf="email.errors.email" class="form__input__helper">Please enter a valid email address</p>
+            </div>
+            <p *ngIf="emailExists" class="form__input__helper">Email is already in use.</p>
+          </div>
+          <div class="form__row">
+            <label for="password" class="form__label">Password <span class="required">*</span></label>
+            <input formControlName="password" type="password" id="password" class="form__input" minlength="8" required>
+            <div *ngIf="triedToSubmit && password != null && password.errors != null">
+              <p *ngIf="password.errors.required" class="form__input__helper">This field is required</p>
+              <p *ngIf="password.errors.minlength" class="form__input__helper">Password must be at least 8 characters</p>
+            </div>
+          </div>
+          <div class="form__row">
+            <label for="re-password" class="form__label">Confirm Password <span class="required">*</span></label>
+            <input formControlName="passwordConfirmation" type="password" id="re-password" class="form__input">
+            <div *ngIf="triedToSubmit && passwordConfirmation != null && passwordConfirmation.errors != null">
+              <p *ngIf="passwordConfirmation.errors.required" class="form__input__helper">This field is required</p>
+              <p *ngIf="passwordConfirmation.errors.minLength" class="form__input__helper">Password must be at least 8 characters</p>
+            </div>
+            <div *ngIf="passwordConfirmation != null && passwordConfirmation.dirty">
+
+              <div *ngIf="password != null && passwordConfirmation.value != password.value">
+                <p class="form__input__helper">Passwords are not identical</p>
+              </div>
+              <div *ngIf="password != null && passwordConfirmation.value == password.value">
+                <p class="form__input__helper green">Passwords are matching</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form__footer">
+          <input formControlName="agreed" type="checkbox" id="terms" required>
+          <label class="checkbox__label" for="terms">I agree to the terms and agreements</label>
+          <div class="form__footer__buttons">
+            <button routerLink="/auth/login" type="button" class="form__submit bt-primary">Back</button>
+            <button (click)="register()" type="submit" class="form__submit bt-primary">
+              <span *ngIf="!isSubmitting">Sign up</span>
+              <app-spinner *ngIf="isSubmitting" style="transform: scale(1)"></app-spinner>
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+

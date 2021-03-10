@@ -1,0 +1,51 @@
+<div class="top">
+  <div class="container">
+    <div class="logo">
+      <img style="cursor: pointer" routerLink="/" src="./assets/logo_home3_1.png" alt="e-commerce" class="logo__img">
+    </div>
+    <div class="buttons">
+      <button (click)="accountNavHidden = false" class="bt-icon">
+        <i class="material-icons">
+          person
+        </i>
+        <span class="bt-icon__text" *ngIf="!authState.authenticated">Login/Signup</span>
+        <span class="bt-icon__text" *ngIf="authState.authenticated">{{authState.user.firstName}} {{authState.user.lastName | slice : 0 : 1 | uppercase}}.</span>
+      </button>
+      <button routerLink="/activity/wishlist" class="bt-icon">
+        <i class="material-icons-outlined">
+          favorite_border
+        </i>
+        <span class="bt-icon__text">Favorite</span>
+        <div class="counter"><span class="counter__span">{{wishCounter}}</span></div>
+      </button>
+      <button (click)="toggleCart(); $event.stopPropagation()" class="bt-icon">
+                    <span class="material-icons-outlined">
+                        shopping_cart
+                    </span>
+        <span class="bt-icon__text">My Cart</span>
+        <div class="counter"><span class="counter__span">{{cartCounter}}</span></div>
+      </button>
+      <div (click)="$event.stopPropagation()" *ngIf="cartExpanded">
+        <app-nav-cart (closeCart)="toggleCart()"></app-nav-cart>
+      </div>
+    </div>
+    <div class="search">
+      <button (click)="hidden = !hidden" class="nav-toggle">
+                    <span class="material-icons">
+                        menu
+                    </span>
+      </button>
+      <div class="search__div">
+        <input type="text" class="input" placeholder="Search the entire store here">
+        <button class="search-submit">
+                        <span class="material-icons">
+                            search
+                        </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-mob-nav (closeNav)="hidden = true" [departments]="departments" [hidden]="hidden"></app-mob-nav>
+<app-account-nav [user]="authState.user" [authenticated]="authState.authenticated" (closeNav)="accountNavHidden = true" [hidden]="accountNavHidden"></app-account-nav>

@@ -1,0 +1,142 @@
+<div *ngIf="!loadingProduct">
+
+  <div class="path">
+    <a href="#" class="path__link">Home</a> <span class="path__arrow"> > </span> <span class="path__title">{{product.title}}</span>
+  </div>
+  <div class="item">
+    <div class="item__img">
+      <div class="item-img-holder">
+        <img src="{{product.images[selectedImage]}}" alt="tablet" class="item-img">
+        <div (click)="prevImage()" class="prev-img">
+          <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24" viewBox="0 0 24 24" width="24">
+            <g>
+              <path d="M0,0h24v24H0V0z" fill="none"/>
+            </g>
+            <g>
+              <path d="M10.88,2.88L10.88,2.88C10.4,2.4,9.6,2.4,9.12,2.88l-8.41,8.41c-0.39,0.39-0.39,1.02,0,1.41l8.41,8.41 c0.49,0.49,1.28,0.49,1.77,0l0,0c0.49-0.49,0.49-1.28,0-1.77L3.54,12l7.35-7.35C11.37,4.16,11.37,3.37,10.88,2.88z"/>
+            </g>
+          </svg>
+        </div>
+        <div (click)="nextImage()" class="next-img">
+          <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24" viewBox="0 0 24 24" width="24">
+            <g>
+              <path d="M0,0h24v24H0V0z" fill="none"/>
+            </g>
+            <g>
+              <path d="M7.12,21.12L7.12,21.12c0.49,0.49,1.28,0.49,1.77,0l8.41-8.41c0.39-0.39,0.39-1.02,0-1.41L8.88,2.88 C8.4,2.4,7.6,2.4,7.12,2.88l0,0c-0.49,0.49-0.49,1.28,0,1.77L14.46,12l-7.35,7.35C6.63,19.84,6.63,20.63,7.12,21.12z"/>
+            </g>
+          </svg>
+        </div>
+      </div>
+      <div class="item__subimg">
+        <ng-template ngFor let-image [ngForOf]="product.images" let-i="index">
+          <img (click)="selectImage(i)" src="{{image}}" alt="tablet" [class.selected]="selectedImage === i" class="item-subimg">
+        </ng-template>
+      </div>
+    </div>
+    <div class="wrapper">
+      <h1 class="item__title">{{product.title}}</h1>
+      <p class="item__price">{{product.price | currency}}</p>
+      <p class="item__status">Stock: <span class="item__status__value">{{product.quantity}} <span *ngIf="product.quantity == 0">Out of stock</span></span></p>
+      <p class="item__status" style="margin-bottom: 120px">SKU: <span class="item__status__value">ProductModel-002</span></p>
+      <p class="item__sold-text"><strong>Hurry Up!</strong> Sold: <span class="sold-amount">64/136</span> products in stock.</p>
+      <div class="sold-wrapper">
+        <div class="sold-gray"></div>
+        <div class="sold-orange"></div>
+      </div>
+      <div class="qty-counter-wrapper">
+        <div class="qty-counter">
+          <button (click)="decreaseCart()" class="qty-counter__bt">
+            <i class="material-icons">
+              remove
+            </i>
+          </button>
+          <span class="qty-counter__value">{{cartQuantity}}</span>
+          <button (click)="increaseCart()" class="qty-counter__bt">
+            <i class="material-icons">
+              add
+            </i>
+          </button>
+        </div>
+        <button style="display: flex; justify-content: center;" (click)="addToCart()" class="bt-primary">
+          <span *ngIf="!addingToCart">
+            Add to Cart
+          </span>
+          <span *ngIf="addingToCart">
+            <app-spinner style="t"></app-spinner>
+          </span>
+        </button>
+      </div>
+      <div class="cta-wrapper">
+        <button class="cta-bt">
+          <i class="material-icons">
+            favorite_border
+          </i>
+        </button>
+        <button class="cta-bt">
+          <i class="material-icons">
+            print
+          </i>
+        </button>
+        <button class="cta-bt">
+          <i class="material-icons">
+            share
+          </i>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="details">
+    <span class=" text-header">Details</span>
+    <div class="details__text-wrapper">
+      <h4 class="details__subheader">The standard passage, used since the 1500s</h4>
+      <p class="deatails__text">Embodying the raw, wayward spirit of rock ‘n’ roll,
+        the Kilburn portable active stereo speaker takes the unmistakable look and sound of Marshall,
+        unplugs the chords, and takes the show on the road.
+        Weighing in under 7 pounds, the Kilburn is a lightweight piece of vintage styled engineering.
+        Setting the bar as one of the loudest speakers in its class, the Kilburn is a compact, stout-hearted hero with a
+        well-balanced audio which boasts a clear midrange and extended highs for a
+        sound that is both articulate and pronounced. The analogue knobs allow you to fine tune the controls to your
+        personal preferences while the guitar-influenced leather strap enables easy and stylish travel.</p>
+      <h4 class="details__subheader">The standard passage, used since the 1500s</h4>
+      <p class="deatails__text">Embodying the raw, wayward spirit of rock ‘n’ roll,
+        the Kilburn portable active stereo speaker takes the unmistakable look and sound of Marshall,
+        unplugs the chords, and takes the show on the road.
+        Weighing in under 7 pounds, the Kilburn is a lightweight piece of vintage styled engineering.
+        Setting the bar as one of the loudest speakers in its class, the Kilburn is a compact, stout-hearted hero with a
+        well-balanced audio which boasts a clear midrange and extended highs for a
+        sound that is both articulate and pronounced. The analogue knobs allow you to fine tune the controls to your
+        personal preferences while the guitar-influenced leather strap enables easy and stylish travel.</p>
+    </div>
+  </div>
+  <!--<div class="related">-->
+  <!--  <span class=" text-header">Related Products</span>-->
+  <!--  <div class="cards-grid">-->
+  <!--    <div class="card-holder">-->
+  <!--      <app-product-card></app-product-card>-->
+  <!--    </div>-->
+  <!--    <div class="card-holder">-->
+  <!--      <app-product-card></app-product-card>-->
+  <!--    </div>-->
+  <!--    <div class="card-holder">-->
+  <!--      <app-product-card></app-product-card>-->
+  <!--    </div>-->
+  <!--    <div class="card-holder">-->
+  <!--      <app-product-card></app-product-card>-->
+  <!--    </div>-->
+  <!--    <div class="card-holder">-->
+  <!--      <app-product-card></app-product-card>-->
+  <!--    </div>-->
+
+
+  <!--  </div>-->
+  <!--</div>-->
+
+
+</div>
+
+<div style="height: 450px; display: flex; align-items: center; justify-content: center" *ngIf="loadingProduct">
+  <span class="dots-loader"></span>
+</div>
+
+<app-added-to-cart (closeModal)="closeCartModal()" *ngIf="showCartModal" [cartItem]="cartItem"></app-added-to-cart>

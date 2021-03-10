@@ -1,0 +1,49 @@
+<div class="wish_item">
+  <div class="wish_img">
+    <img src="{{wish.product.images[0]}}" alt="" class="wish_img_img">
+  </div>
+  <div class="wish_body">
+
+    <div class="wish_item_info">
+
+      <a routerLink="/product/{{wish.product.shortCut}}" class="wish_item_title">
+        {{wish.product.title}}
+      </a>
+
+      <span class="wish_item_amount">
+            {{wish.product.price * wish.quantity | currency}}
+          </span>
+
+    </div>
+
+    <div class="wish_item_actions">
+      <button (click)="remove()" class="remove_btn">
+        remove
+      </button>
+      <div class="qty-counter-wrapper">
+        <div class="qty-counter">
+          <button (click)="decreaseCart()" class="qty-counter__bt">
+            <i class="material-icons">
+              remove
+            </i>
+          </button>
+          <span class="qty-counter__value">{{wish.quantity}}</span>
+          <button (click)="increaseCart()" class="qty-counter__bt">
+            <i class="material-icons">
+              add
+            </i>
+          </button>
+        </div>
+        <button (click)="addToCart()" style="display: flex; justify-content: center; align-items: center; height: 41px" class="bt-primary">
+          <span *ngIf="!addingToCart">
+            Add to Cart
+          </span>
+          <span *ngIf="addingToCart">
+            <app-spinner></app-spinner>
+          </span>
+        </button>
+      </div>
+    </div>
+
+  </div>
+</div>

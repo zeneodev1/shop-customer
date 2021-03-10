@@ -1,0 +1,136 @@
+
+
+/*Cart MODAL*/
+
+.modal-container {
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #0000001f;
+}
+
+
+/* Item Modal */
+.modal {
+  background: #fff;
+  color: var(--text-secondary);
+  padding: 3em 1em;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+  border-top: 2px solid var(--secondary);
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  position: relative;
+  width: 95%;
+  max-width: 450px;
+}
+
+.modal__close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: 0;
+  color: #2e2e2ec9;
+  cursor: pointer;
+}
+
+.modal__header {
+  margin-top: -1.9em;
+  color: var(--text-primary);
+  font-size: 19px;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.025em;
+}
+
+.modal__button {
+  display: block;
+  width: 100%;
+  font-size: 15px;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.bt-primary {
+  padding: 0.7em 1em;
+  border: 0;
+  border-radius: 2px;
+  font-size: 15px;
+  background: var(--secondary);
+  color: #fff;
+}
+
+.modal__button + .modal__button {
+  margin-top: 1em;
+}
+
+@media (min-width: 600px) {
+  .buttons-wrapper {
+    display: flex;
+    margin: 0 -10px;
+  }
+  .modal__button {
+    width: 50%;
+    margin: 0 10px;
+  }
+  .modal__button + .modal__button {
+    margin-top: 0;
+  }
+}
+
+/* ITEM IN MODAL */
+
+.modal__item {
+  margin: 1em 0 0;
+  padding: 0.8em 0;
+  text-align: center;
+}
+
+@media (min-width: 600px) {
+  .modal__item {
+    display: flex;
+    text-align: left;
+  }
+}
+
+.modal__item__img {
+  margin-right: 1em;
+  width: 50%;
+}
+
+.modal__item__info {
+  width: 50%;
+}
+
+.modal__item__img-img {
+  object-fit: cover;
+  width: 100%;
+}
+
+
+
+.modal__info__title {
+  color: var(--secondary);
+  font-size: 15px;
+  text-decoration: none;
+  display: block;
+  margin-bottom: 1.2em;
+  transition: color 0.3s ease 0s;
+}
+
+.modal__info__amount {
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.modal__info__qty {
+  margin-top: 2em;
+  margin-bottom: 4em;
+}

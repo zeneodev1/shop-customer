@@ -1,0 +1,25 @@
+<div class="modal-container">
+
+  <div class="modal">
+    <p class="modal__header">Added To Your Bag</p>
+    <div class="modal__item">
+      <div class="modal__item__img">
+        <img class="modal__item__img-img" src="{{cartItem.product.images[0]}}" alt="a tablet">
+      </div>
+      <div class="modal__item__info">
+        <a href="#" class="modal__info__title">{{cartItem.product.title}}</a>
+        <p class="modal__info__amount">{{cartItem.product.price * cartItem.quantity | currency}}</p>
+        <p class="modal__info__qty">Qty: <span class="modal__info__qty-span">{{cartItem.quantity}}</span></p>
+      </div>
+    </div>
+    <div class="buttons-wrapper">
+      <button (click)="closeCartModal()" class="modal__button bt-primary">Continue Shopping</button>
+      <button routerLink="/activity/cart" class="modal__button bt-primary ">View Cart</button>
+    </div>
+    <button (click)="closeCartModal()" class="modal__close-button">
+      <i class="material-icons">
+        close
+      </i>
+    </button>
+  </div>
+</div>

@@ -1,0 +1,94 @@
+
+.wish_item {
+  display: flex;
+  margin: 15px 0;
+  padding: 12px 0;
+  border-top: 1px whitesmoke solid;
+  border-bottom: 1px whitesmoke solid;
+}
+
+.wish_img {
+  width: 200px;
+  margin-right: 15px;
+}
+
+.wish_img .wish_img_img {
+  width: 100%;
+}
+
+.wish_body {
+  margin: 15px 0;
+  width: 100%;
+}
+
+.wish_body .wish_item_info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 45px;
+}
+
+.wish_body .wish_item_info .wish_item_title {
+  cursor: pointer;
+  text-decoration: none;
+  color: var(--text-secondary);
+}
+
+.wish_body .wish_item_info .wish_item_title:hover {
+  color: var(--secondary);
+}
+
+.wish_body .wish_item_info .wish_item_amount {
+  margin-left: auto;
+  color: var(--secondary);
+}
+
+.wish_body .wish_item_actions {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.wish_body .wish_item_actions .remove_btn {
+  background: transparent;
+  border: 0;
+  font-size: 16px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.wish_body .wish_item_actions .qty-counter-wrapper {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+
+.qty-counter {
+  display: flex;
+  max-width: 180px;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #3f3f3f36;
+  padding: 0.5em 0.4em;
+  border-radius: 5px;
+  width: 150px;
+  margin-right: 15px;
+}
+
+.qty-counter__bt {
+  background: transparent;
+  border: 0;
+  color: #3f3f3fb5;
+  display: flex;
+  align-items: center;
+  transition: color 0.3s ease 0s;
+  cursor: pointer;
+}
+
+.qty-counter__bt:hover {
+  color: var(--text-primary);
+}
+
+.wish_body .bt-primary{
+  padding: 13px 25px;
+  width: 200px;
+}

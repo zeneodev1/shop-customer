@@ -1,0 +1,130 @@
+.carousel {
+  position: relative;
+  min-height: 400px;
+  display: flex;
+  margin: 50px 0;
+}
+
+
+@media (max-width: 1200px) {
+  .carousel {
+    min-height: 400px;
+  }
+  .carousel::ng-deep .carousel-cell img {
+    width: auto!important;
+  }
+}
+
+@media (max-width: 1000px) {
+  .carousel {
+    min-height: 370px;
+  }
+
+}
+
+
+@media (max-width: 800px) {
+  .carousel {
+    min-height: 330px;
+    display: inline-block;
+    margin: 20px 0;
+  }
+}
+
+
+@media (max-width: 600px) {
+  .carousel {
+    min-height: 300px;
+  }
+}
+
+
+
+@media (max-width: 400px) {
+  .carousel {
+    min-height: 230px;
+  }
+}
+
+/* departments */
+
+.departements {
+  display: flex;
+  margin: 0 -10px 2em -10px;
+  flex-wrap: wrap;
+}
+
+
+
+.wrapper {
+  padding: 0 10px;
+  width: 100%;
+}
+
+.departement {
+  padding: 1.7em 1.2em;
+  background: #fff;
+  margin: 0.5em 0;
+  width: 100%;
+  border: 1px whitesmoke solid;
+  border-radius: 5px;
+}
+
+.departement__title {
+  color: var(--text-primary);
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.departement__img {
+  display: block;
+  object-fit: cover;
+  margin: 0.5em 0 1.2em;
+  height: 150px;
+}
+
+.departement__link {
+  color: var(--secondary);
+  text-decoration: none;
+  font-size: 15px;
+}
+
+.departement__link:hover {
+  text-decoration: underline;
+}
+
+/* ======================= */
+@media (min-width: 450px) {
+  .carousel__content {
+    margin: 4em;
+  }
+  .wrapper {
+    width: 50%;
+  }
+  .departement__img {
+    height: 150px;
+  }
+}
+
+
+
+@media (min-width: 900px) {
+  .wrapper {
+    width: 25%;
+  }
+}
+
+
+@media (min-width: 1000px) {
+  .departement__img {
+    height: 180px;
+  }
+}
+
+
+
+@media (min-width: 1400px) {
+  .wrapper {
+    width: 20%;
+  }
+}

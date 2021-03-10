@@ -1,0 +1,49 @@
+<div class="cart-wrapper">
+  <div *ngIf="cartItems.length > 0">
+    <div class="cart filled-cart">
+      <p class="cart__header">My Cart <span class="cart__items-number">( {{cartItems.length}} Item in Cart )</span></p>
+      <div style="max-height: 260px; overflow-y: auto">
+        <div *ngFor="let item of cartItems" class="cart__item">
+          <div class="cart__item__img">
+            <img class="cart__item__img-img" src="{{item.product.images[0]}}" alt="a tablet">
+          </div>
+          <div class="cart__item__info">
+            <a href="#" class="cart__info__title">Australian Large Granny Smith Apples</a>
+            <p class="cart__info__amount">{{item.product.price | currency}}</p>
+            <p class="cart__info__qty">Qty: <span class="cart__info__qty-span">{{item.quantity}}</span></p>
+          </div>
+          <div class="cart__item__actions">
+            <button class="cart__item-bt">
+              <i class="material-icons">
+                settings
+              </i>
+            </button>
+            <button (click)="deleteFromCart(item)" class="cart__item-bt">
+              <i class="material-icons">
+                delete
+              </i>
+            </button>
+          </div>
+        </div>
+
+      </div>
+      <div class="cart__amount-wrapper">
+        <p class="cart__total-text">Cart Subtotal</p>
+        <p class="cart__amount">{{totalCart | currency}}</p>
+      </div>
+      <button (click)="onClickClose()" routerLink="/checkout" class="cart__button bt-primary">Proceed to Checkout</button>
+      <button (click)="onClickClose()" routerLink="/activity/cart" class="cart__button bt-primary inverted">View and Edit Cart</button>
+    </div>
+  </div>
+  <div *ngIf="cartItems.length == 0">
+    <div class="cart empty-cart">
+      <p class="empty-cart__text">You have no items in your shopping cart.</p>
+      <button (click)="onClickClose()" class="cart__close-button">
+        <i class="material-icons">
+          close
+        </i>
+      </button>
+    </div>
+  </div>
+</div>
+

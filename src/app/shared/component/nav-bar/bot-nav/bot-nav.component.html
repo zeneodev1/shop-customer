@@ -1,0 +1,26 @@
+<nav class="bottom">
+  <div class="container">
+    <ul class="nav__list">
+      <li class="nav__item">
+        <a class="nav__link">
+          Departments
+          <span class="material-icons">
+              expand_more
+            </span>
+        </a>
+        <div class="nav__item__dropdown">
+          <ul class="nav__sublist">
+            <li *ngFor="let department of departments; let i = index" class="nav__sublist_item">
+              <a [ngStyle]="{borderBottom: departments.length == i + 1 ? '0' : '1px solid #f3f3f3'}"  routerLink="/products/{{department.shortCut}}" class="nav__sublist__link">
+                {{department.name}}
+              </a>
+            </li>
+          </ul>
+        </div>
+      </li>
+
+      <li style="margin-left: auto" class="nav__item"><a href="#" class="nav__link">about us</a></li>
+      <li style="margin-right: 0" class="nav__item"><a href="#" class="nav__link">contact</a></li>
+    </ul>
+  </div>
+</nav>

@@ -1,0 +1,257 @@
+
+.cart_header {
+  margin: 30px 0;
+  font-weight: 500;
+}
+
+.cart_header .title {
+  margin: 15px 0 0 0;
+  display: inline-block;
+  font-weight: 500;
+  font-size: 24px;
+}
+
+.cart_wrapper {
+  display: flex;
+  position: relative;
+}
+
+.cart_empty {
+  color: var(--text-secondary);
+  padding: 40px 0 70px 0;
+}
+
+.cart_empty .bt-primary {
+  font-size: 15px;
+  margin-top: 20px;
+  padding: 11px 18px;
+}
+
+.cart_items {
+  width: 67%;
+  margin-right: 70px;
+  position: relative;
+}
+
+.updating {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cart_items .cart_table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.cart_items .cart_table .cart_table_header {
+  border-bottom: 2px #EEEEEE solid;
+}
+
+.cart_items .cart_table .cart_table_header th {
+  font-size: 15px;
+  font-weight: 500;
+  padding: 7px 0;
+}
+
+.cart_items .cart_table tr {
+  border-bottom: 1px #EEEEEE solid;
+}
+
+.cart_items .cart_table .product_column {
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  padding: 13px 0;
+}
+
+.cart_items .cart_table .product_column .delete-btn {
+  background: #cdcccc;
+  color: white;
+  width: 21px;
+  height: 21px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 50%;
+  transition: 0.3s background-color;
+  cursor: pointer;
+}
+
+.cart_items .cart_table .product_column .delete-btn .material-icons {
+  font-size: 15px;
+}
+
+.cart_items .cart_table .product_column .delete-btn:hover {
+  background: #323131;
+}
+
+.cart_items .cart_table .product_column .product-title {
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: 0.3s color;
+  font-size: 15px;
+  padding-right: 20px;
+}
+
+.cart_items .cart_table .product_column .product-title:hover {
+  color: var(--secondary);
+}
+
+.cart_items .cart_table .product_column .product-img {
+  width: 80px;
+  margin: 0 12px;
+}
+
+
+.cart_items .cart_table .price {
+  color: var(--secondary);
+  font-size: 14px;
+  margin-right: 20px;
+}
+
+.qty-counter {
+  display: flex;
+  max-width: 100px;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #3f3f3f36;
+  padding: 0.3em 0.4em;
+  border-radius: 5px;
+  width: 100px;
+  margin-right: 15px;
+}
+
+.qty-counter__bt {
+  background: transparent;
+  border: 0;
+  color: #3f3f3fb5;
+  display: flex;
+  font-size: 15px;
+  align-items: center;
+  transition: color 0.3s ease 0s;
+  cursor: pointer;
+}
+
+.qty-counter__bt:hover {
+  color: var(--text-primary);
+}
+
+.qty-counter__value {
+  font-size: 14px;
+}
+
+
+.cart_actions {
+  display: flex;
+  align-items: center;
+}
+
+.cart_actions .bt-primary {
+  padding: 13px 25px;
+  margin: 10px 15px;
+}
+
+
+.cart_total {
+  width: 37%;
+  position: relative;
+}
+
+.cart_total_item {
+  padding: 21px 0;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  border-bottom: #eeeeee 1px solid;
+}
+
+.cart_total_item_name {
+  font-size: 16px;
+}
+
+.cart_total_item_price {
+  font-size: 14px;
+  margin-left: auto;
+}
+
+
+.checkout-btn {
+  width: 100%;
+  padding: 17px 0;
+}
+
+
+.cart_total_item.shipping {
+  display: flex;
+  align-items: flex-start;
+}
+
+
+.shipping_options {
+  margin-left: 40px;
+  margin-top: -11px;
+}
+
+.shipping_options input {
+  margin: 11px 15px 8px 0;
+}
+
+.shipping_options  label {
+  font-size: 15px;
+}
+
+.shipping_to {
+  font-size: 15px;
+  margin-top: 5px;
+}
+
+.shipping_to .destination {
+  font-weight: 600;
+}
+
+
+.change-address-btn {
+  border: 0;
+  background: transparent;
+  color: var(--primary);
+  transition: 0.2s color;
+  padding: 25px 0;
+  font-weight: 500;
+  font-size: 15px;
+}
+
+.change-address-btn:hover {
+  color: var(--secondary);
+}
+
+.form__input {
+  height: 40px;
+  width: 230px;
+  margin: 0!important;
+  padding: 0 10px;
+}
+
+.form__row {
+  margin: 5px 0;
+}
+
+.change-address-submit {
+  height: 41px;
+  width: 230px;
+  background: #2d2d2d;
+  color: white;
+  border: 0;
+  transition: background-color 0.3s;
+  cursor: pointer;
+}
+
+.change-address-submit:hover {
+  background: var(--secondary);
+}

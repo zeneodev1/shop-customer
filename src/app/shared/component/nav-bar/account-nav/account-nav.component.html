@@ -1,0 +1,111 @@
+<nav [class.visible]="!hidden" class="account-nav">
+  <div class="one">
+
+    <div class="wrapper">
+
+      <div class="header">
+
+        <div class="account-icon">
+          <span class="material-icons">
+            person
+          </span>
+        </div>
+
+        <span *ngIf="!authenticated" class="account">Account</span>
+        <span *ngIf="authenticated" class="account">{{user.firstName}} {{user.lastName[0]}}.</span>
+
+        <button (click)="closeNavBar()" class="close-btn">
+          <span class="material-icons">
+            close
+          </span>
+        </button>
+      </div>
+
+      <div *ngIf="!authenticated">
+        <ul class="account-nav-list">
+          <li class="account-nav-item">
+            <a (click)="closeNavBar()" routerLink="/auth/login" class="account-nav-link">
+            <span class="icon">
+              <span class="material-icons">
+                login
+              </span>
+            </span>
+
+              <span>Login</span>
+
+            </a>
+          </li>
+          <li class="account-nav-item">
+            <a (click)="closeNavBar()" routerLink="/auth/register" class="account-nav-link">
+            <span class="icon">
+              <span class="material-icons">
+                how_to_reg
+              </span>
+            </span>
+
+              <span>Sign up</span>
+
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div *ngIf="authenticated">
+        <ul class="account-nav-list">
+          <li class="account-nav-item">
+            <a (click)="closeNavBar()" routerLink="/auth/register" class="account-nav-link">
+            <span class="icon">
+              <span class="material-icons">
+                person
+              </span>
+            </span>
+
+              <span>Account</span>
+
+            </a>
+          </li>
+          <li class="account-nav-item">
+            <a (click)="closeNavBar()" routerLink="/auth/register" class="account-nav-link">
+            <span class="icon">
+              <span class="material-icons-outlined">
+                local_shipping
+              </span>
+            </span>
+
+              <span>My orders</span>
+
+            </a>
+          </li>
+          <li class="account-nav-item">
+            <a (click)="closeNavBar()" routerLink="/activity/wishlist" class="account-nav-link">
+            <span class="icon">
+              <span class="material-icons-outlined">
+                favorite_border
+              </span>
+            </span>
+
+              <span>Wishlist</span>
+
+            </a>
+          </li>
+          <li class="account-nav-item">
+            <a (click)="logout(); closeNavBar()" routerLink="/auth/login" class="account-nav-link">
+              <span class="icon">
+                <span class="material-icons">
+                  logout
+                </span>
+              </span>
+
+              <span>Sign out</span>
+
+            </a>
+          </li>
+        </ul>
+      </div>
+
+
+    </div>
+
+  </div>
+  <div (click)="closeNavBar()" class="two"></div>
+</nav>

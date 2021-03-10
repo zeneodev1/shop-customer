@@ -1,0 +1,10 @@
+<nav [class.visible]="!hidden" class="mobile-nav">
+  <div class="one">
+    <ul class="mobile-nav__list">
+      <li (click)="closeNavBar()" *ngFor="let d of departments" class="mobile-nav__item"><a routerLink="/products/{{d.shortCut}}" class="mobile-nav__link">{{d.name}}</a></li>
+      <li class="mobile-nav__item"><a href="#" class="mobile-nav__link">about us</a></li>
+      <li class="mobile-nav__item"><a href="#" class="mobile-nav__link">contact</a></li>
+    </ul>
+  </div>
+  <div (click)="closeNavBar()" class="two"></div>
+</nav>
