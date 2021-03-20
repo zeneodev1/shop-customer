@@ -1,1 +1,16 @@
-<p>account works!</p>
+
+<div class="account-wrapper">
+
+  <div class="account-aside">
+    <a routerLink="/account/dashboard" routerLinkActive="active" class="account-aside-link">Dashboard</a>
+    <a routerLink="/account/orders" routerLinkActive="active" class="account-aside-link">Orders</a>
+    <a routerLink="/account/address" class="account-aside-link">Addresses</a>
+    <a routerLink="/account/details" routerLinkActive="active" class="account-aside-link">Edit Details</a>
+    <a routerLink="/" (click)="logout()" class="account-aside-link">Logout</a>
+  </div>
+
+  <div class="account-content">
+    <router-outlet></router-outlet>
+  </div>
+
+</div>

@@ -8,6 +8,7 @@ import {ViewCartModule} from './modules/activity/view-cart/view-cart.module';
 import {WishListModule} from './modules/activity/wish-list/wish-list.module';
 import {HomeModule} from './modules/shop/home/home.module';
 import {CheckoutModule} from './modules/checkout/checkout.module';
+import {AccountModule} from './modules/account/account.module';
 
 const routes: Routes = [
   {path: 'auth', children: [
@@ -22,6 +23,7 @@ const routes: Routes = [
   {path: 'product/:productName', loadChildren: () => ProductModule},
   {path: '', loadChildren: () => HomeModule},
   {path: 'checkout', loadChildren: () => CheckoutModule},
+  {path: 'account', loadChildren: () => AccountModule},
   {path: '**', redirectTo: '/', pathMatch: 'full'},
 ];
 

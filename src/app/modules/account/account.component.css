@@ -1,0 +1,33 @@
+.account-wrapper {
+  display: flex;
+  margin: 30px 0;
+}
+
+.account-aside {
+  width: 25%;
+  margin-right: 30px;
+}
+
+
+.account-content {
+  width: 70%;
+}
+
+.account-aside .account-aside-link {
+  display: block;
+  margin: 20px 0;
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: 0.2s all;
+}
+
+.account-aside .account-aside-link.active {
+  color: var(--secondary);
+  text-decoration: underline;
+}
+
+
+.account-aside .account-aside-link:hover {
+  color: var(--secondary);
+}
+

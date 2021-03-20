@@ -63,7 +63,7 @@
             Add to Cart
           </span>
           <span *ngIf="addingToCart">
-            <app-spinner style="t"></app-spinner>
+            <app-spinner style=""></app-spinner>
           </span>
         </button>
       </div>
@@ -87,51 +87,17 @@
     </div>
   </div>
   <div class="details">
-    <span class=" text-header">Details</span>
-    <div class="details__text-wrapper">
-      <h4 class="details__subheader">The standard passage, used since the 1500s</h4>
-      <p class="deatails__text">Embodying the raw, wayward spirit of rock ‘n’ roll,
-        the Kilburn portable active stereo speaker takes the unmistakable look and sound of Marshall,
-        unplugs the chords, and takes the show on the road.
-        Weighing in under 7 pounds, the Kilburn is a lightweight piece of vintage styled engineering.
-        Setting the bar as one of the loudest speakers in its class, the Kilburn is a compact, stout-hearted hero with a
-        well-balanced audio which boasts a clear midrange and extended highs for a
-        sound that is both articulate and pronounced. The analogue knobs allow you to fine tune the controls to your
-        personal preferences while the guitar-influenced leather strap enables easy and stylish travel.</p>
-      <h4 class="details__subheader">The standard passage, used since the 1500s</h4>
-      <p class="deatails__text">Embodying the raw, wayward spirit of rock ‘n’ roll,
-        the Kilburn portable active stereo speaker takes the unmistakable look and sound of Marshall,
-        unplugs the chords, and takes the show on the road.
-        Weighing in under 7 pounds, the Kilburn is a lightweight piece of vintage styled engineering.
-        Setting the bar as one of the loudest speakers in its class, the Kilburn is a compact, stout-hearted hero with a
-        well-balanced audio which boasts a clear midrange and extended highs for a
-        sound that is both articulate and pronounced. The analogue knobs allow you to fine tune the controls to your
-        personal preferences while the guitar-influenced leather strap enables easy and stylish travel.</p>
+    <span class="text-header">Details</span>
+    <div [innerHTML]="product.productDescription.content" class="details__text-wrapper">
     </div>
   </div>
-  <!--<div class="related">-->
-  <!--  <span class=" text-header">Related Products</span>-->
-  <!--  <div class="cards-grid">-->
-  <!--    <div class="card-holder">-->
-  <!--      <app-product-card></app-product-card>-->
-  <!--    </div>-->
-  <!--    <div class="card-holder">-->
-  <!--      <app-product-card></app-product-card>-->
-  <!--    </div>-->
-  <!--    <div class="card-holder">-->
-  <!--      <app-product-card></app-product-card>-->
-  <!--    </div>-->
-  <!--    <div class="card-holder">-->
-  <!--      <app-product-card></app-product-card>-->
-  <!--    </div>-->
-  <!--    <div class="card-holder">-->
-  <!--      <app-product-card></app-product-card>-->
-  <!--    </div>-->
 
+  <div class="details">
+    <span style="margin-bottom: 1.5em" class="text-header">Shipping Estimator</span>
 
-  <!--  </div>-->
-  <!--</div>-->
+    <app-shipping-estimator [productInfo]="product.information"></app-shipping-estimator>
 
+  </div>
 
 </div>
 

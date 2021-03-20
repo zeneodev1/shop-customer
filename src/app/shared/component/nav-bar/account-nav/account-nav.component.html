@@ -53,24 +53,24 @@
       <div *ngIf="authenticated">
         <ul class="account-nav-list">
           <li class="account-nav-item">
-            <a (click)="closeNavBar()" routerLink="/auth/register" class="account-nav-link">
-            <span class="icon">
-              <span class="material-icons">
-                person
+            <a (click)="closeNavBar()" routerLink="/account" class="account-nav-link">
+              <span class="icon">
+                <span class="material-icons">
+                  person
+                </span>
               </span>
-            </span>
 
               <span>Account</span>
 
             </a>
           </li>
           <li class="account-nav-item">
-            <a (click)="closeNavBar()" routerLink="/auth/register" class="account-nav-link">
-            <span class="icon">
-              <span class="material-icons-outlined">
-                local_shipping
+            <a (click)="closeNavBar()" routerLink="/account/orders" class="account-nav-link">
+              <span class="icon">
+                <span class="material-icons-outlined">
+                  local_shipping
+                </span>
               </span>
-            </span>
 
               <span>My orders</span>
 

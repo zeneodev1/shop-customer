@@ -11,6 +11,10 @@ export class Product {
   public chargeTaxes: boolean | undefined;
   public condition: boolean | undefined;
   public tags: string[] = [];
+  public information: any | undefined;
   public status: string | undefined;
-  shortCut: string | undefined;
+  public shortCut: string | undefined;
+  public productDescription: {
+    content: string
+  };
 }

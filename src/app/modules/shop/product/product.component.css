@@ -242,11 +242,12 @@
   border-bottom: 4px solid var(--secondary);
   padding-bottom: 0.1em;
   font-size: 23px;
+  display: inline-block;
   font-weight: 500;
 }
 
 .details__text-wrapper {
-  margin-top: 3em;
+  margin-top: 2em;
 }
 
 .details__subheader {
