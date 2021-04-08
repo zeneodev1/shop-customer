@@ -2,6 +2,7 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {AbstractControl, FormControl, FormGroup, Validators} from '@angular/forms';
 import {CustomerInfo} from '../../../shared/model/customer-info.model';
 import {UserActivityService} from '../../../core/service/user-activity.service';
+import {Address} from '../../../shared/model/address.model';
 
 @Component({
   selector: 'app-checkout-step-one',
@@ -12,7 +13,7 @@ export class CheckoutStepOneComponent implements OnInit {
   @Output()
   continue: EventEmitter<void> = new EventEmitter<void>();
   @Input()
-  customerInfo: CustomerInfo;
+  address: Address;
   infoForm: FormGroup;
   triedToSubmit = false;
   constructor() {
@@ -20,28 +21,28 @@ export class CheckoutStepOneComponent implements OnInit {
 
   ngOnInit(): void {
     this.infoForm = new FormGroup({
-      email: new FormControl(this.customerInfo.email, [Validators.required, Validators.email]),
-      firstName: new FormControl(this.customerInfo.firstName, [Validators.required]),
-      lastName: new FormControl(this.customerInfo.lastName, [Validators.required]),
-      street: new FormControl(this.customerInfo.street, [Validators.required]),
-      city: new FormControl(this.customerInfo.city, [Validators.required]),
-      zip: new FormControl(this.customerInfo.zip, [Validators.required]),
-      country: new FormControl(!this.customerInfo.country ? '' : this.customerInfo.country, [Validators.required]),
-      state: new FormControl(this.customerInfo.state, [Validators.required]),
-      phone: new FormControl(this.customerInfo.phone, [Validators.required]),
-      company: new FormControl(this.customerInfo.company),
+      email: new FormControl(this.address.email, [Validators.required, Validators.email]),
+      firstName: new FormControl(this.address.firstName, [Validators.required]),
+      lastName: new FormControl(this.address.lastName, [Validators.required]),
+      street: new FormControl(this.address.street, [Validators.required]),
+      city: new FormControl(this.address.city, [Validators.required]),
+      zip: new FormControl(this.address.zipCode, [Validators.required]),
+      country: new FormControl(!this.address.country ? '' : this.address.country, [Validators.required]),
+      state: new FormControl(this.address.state, [Validators.required]),
+      phone: new FormControl(this.address.phoneNumber, [Validators.required]),
+      company: new FormControl(this.address.company),
     });
     this.infoForm.valueChanges.subscribe(() => {
-      this.customerInfo.email = this.email.value;
-      this.customerInfo.firstName = this.firstName.value;
-      this.customerInfo.lastName = this.lastName.value;
-      this.customerInfo.street = this.street.value;
-      this.customerInfo.city = this.city.value;
-      this.customerInfo.zip = this.zip.value;
-      this.customerInfo.country = this.country.value;
-      this.customerInfo.state = this.state.value;
-      this.customerInfo.phone = this.phone.value;
-      this.customerInfo.company = this.company.value;
+      this.address.email = this.email.value;
+      this.address.firstName = this.firstName.value;
+      this.address.lastName = this.lastName.value;
+      this.address.street = this.street.value;
+      this.address.city = this.city.value;
+      this.address.zipCode = this.zip.value;
+      this.address.country = this.country.value;
+      this.address.state = this.state.value;
+      this.address.phoneNumber = this.phone.value;
+      this.address.company = this.company.value;
     });
   }
 

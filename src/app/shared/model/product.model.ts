@@ -1,3 +1,4 @@
+
 export class Product {
   public id: string | undefined;
   public title: string | undefined;

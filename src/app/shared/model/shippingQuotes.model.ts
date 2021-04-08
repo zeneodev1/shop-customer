@@ -1,13 +1,37 @@
-import {LoadType} from '../../modules/shop/product/shipping-estimator/shipping-estimator.component';
 
-export class ShippingQuotesModel {
+export class ShippingQuote {
   width: number;
   height: number;
   length: number;
+  quantity: number;
   destination: string;
   origin: string;
   weight: number;
-  volume: number;
   format: string;
-  loadType: LoadType;
+  loadtype: string;
+}
+
+export class RatesResponse {
+  mode: RateMode[];
+  numQuotes: number;
+}
+
+export class RateMode {
+  price: {
+    min: {moneyAmount: {
+        amount: number,
+        currency: string
+      }},
+    max: {moneyAmount: {
+        amount: number,
+        currency: string
+      }}
+  };
+  transitTimes: {
+    min: number,
+    unit: string,
+    max: number
+  };
+  mode: string;
+  comment: string;
 }

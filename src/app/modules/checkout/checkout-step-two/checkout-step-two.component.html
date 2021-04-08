@@ -1,41 +1,47 @@
 
 <div class="form">
   <h3 class="form__header">Shipping Methods</h3>
-  <div class="divider"></div>
-  <div class="form__choice">
-    <input type="radio" name="shipping-method" id="option-1">
-    <label for="option-1">
-      <span >$30.00</span>
-      <span style="width: 65px" >Express</span>
-      <span>(4 - 6) days delivery</span>
-    </label>
-  </div>
-  <div class="divider"></div>
-  <div class="form__choice">
-    <input type="radio" name="shipping-method" id="option-2">
-    <label for="option-2">
-      <span >$50.00</span>
-      <span style="width: 65px" >Air</span>
-      <span>(6 - 8) days delivery</span>
-    </label>
-  </div>
-  <div class="divider"></div>
-  <div class="form__choice">
-    <input type="radio" name="shipping-method" id="option-3">
-    <label for="option-3">
-      <span >$70.00</span>
-      <span style="width: 65px"  >FCL</span>
-      <span>(10 - 15) days delivery</span>
-    </label>
-  </div>
-  <div class="divider"></div>
+
+  <ng-template ngFor let-i="index" let-item [ngForOf]="orderItems">
+    <div class="divider"></div>
+    <app-select-shipping-modal (closeModal)="showSelectShippingModal(-1)" [orderItem]="orderItems[i]" *ngIf="selectShippingModal === i"></app-select-shipping-modal>
+    <div class="order-item">
+      <div class="item-img-holder">
+        <img class="item-img" alt="" src="{{item.cartItem.product.images[0]}}">
+      </div>
+      <div class="item-body">
+        <div class="item-info">
+          <span routerLink="/product/{{item.cartItem.product.shortCut}}" class="product-title">{{item.cartItem.product.title}}</span>
+          <span class="product-price">{{item.cartItem.product.price | currency}}</span>
+        </div>
+        <div class="item-details">
+          <span class="item-quantity">Quantity: {{item.cartItem.quantity}}</span>
+          <div style="margin-left: auto; display: flex; align-items: center">
+            <span *ngIf="triedToSubmit && item.shippingMode == null" class="required-error">Required*</span>
+            <button *ngIf="orderItems[i].shippingMode == null" (click)="showSelectShippingModal(i)" class="bt-primary select-shipping-btn">
+              Select a shipping method
+            </button>
+          </div>
+          <span *ngIf="orderItems[i].shippingMode != null" (click)="showSelectShippingModal(i)" class="selected-shipping-method select-shipping-btn">
+            {{orderItems[i].shippingMode.mode}}: {{orderItems[i].shippingMode.price.min.moneyAmount.amount | currency}}
+            <span class="material-icons">
+              expand_more
+            </span>
+          </span>
+        </div>
+      </div>
+
+    </div>
+
+  </ng-template>
+
   <div class="submit-buttons">
     <button (click)="back.emit()" class="bt-primary back">
       <i class="material-icons-outlined">
         keyboard_backspace
       </i>
     </button>
-    <button (click)="continue.emit()" class="bt-primary">
+    <button (click)="submitShippingMethods()" class="bt-primary">
       Continue
     </button>
   </div>

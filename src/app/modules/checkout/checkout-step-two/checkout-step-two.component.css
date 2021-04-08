@@ -16,22 +16,68 @@
   margin: 1em 0;
 }
 
-.form__choice {
-  padding: 0 1em;
+
+
+.order-item {
+  display: flex;
+}
+
+.order-item .item-img-holder {
+  width: 200px;
+}
+
+.order-item .item-img-holder .item-img {
+  width: 100%;
+}
+
+.item-body {
+  width: 100%;
+  margin-left: 15px;
+}
+
+.item-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.item-info .product-title {
   color: var(--text-secondary);
+  font-size: 15px;
 }
 
-.form__choice input,
-.form__choice label > * {
-  margin: 0.5em 1.5em 0.5em 0;
+.item-info .product-title:hover {
+  color: var(--secondary);
+  cursor: pointer;
 }
 
-
-.form__choice label span {
-  display: inline-block;
-  font-size: 16px;
+.item-info .product-price {
+  margin-left: auto;
+  font-size: 14px;
 }
 
+.item-details {
+  display: flex;
+  align-items: center;
+}
+
+.item-details .select-shipping-btn {
+  margin-left: auto;
+}
+
+.item-details .selected-shipping-method {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--secondary);
+  text-transform: capitalize;
+  cursor: pointer;
+}
+
+.item-details .selected-shipping-method .material-icons {
+  font-size: 19px;
+  margin-left: 4px;
+}
 
 .submit-buttons {
   display: flex;
@@ -40,7 +86,7 @@
   margin-bottom: 1em;
 }
 
-.bt-primary {
+.submit-buttons .bt-primary {
   padding: 0.5em 3em;
   margin-left: 1em;
   border: 0;
@@ -58,6 +104,11 @@
   align-items: center;
 }
 
-.bt-primary.back {
+.submit-buttons .bt-primary.back {
   padding: 0.5em 1em;
+}
+
+.required-error {
+  color: #F73131;
+  margin-right: 10px;
 }

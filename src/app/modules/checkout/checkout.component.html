@@ -3,15 +3,30 @@
 <div class="checkout">
   <div class="flex">
     <div class="form-steps">
+      <ng-template [ngIf]="displaying == 'steps'">
+        <div class="steps">
+          <div [class.selected]="step == 1" class="step">01.<span class="step__title">CUSTOMER INFO</span></div>
+          <div [class.selected]="step == 2" class="step">02.<span class="step__title">SHIPPING INFO</span></div>
+          <div [class.selected]="step == 3" class="step">03.<span class="step__title">PAYMENT METHOD</span></div>
+        </div>
+        <app-checkout-step-one [address]="address" (continue)="continue()" *ngIf="step == 1"></app-checkout-step-one>
+        <app-checkout-step-two [orderItems]="orderItems" (continue)="continue()" (back)="back()" *ngIf="step == 2"></app-checkout-step-two>
+        <app-checkout-step-three (checkout)="checkout($event)" (back)="back()" *ngIf="step == 3"></app-checkout-step-three>
+      </ng-template>
+      <ng-template [ngIf]="displaying == 'validation'">
 
-      <div class="steps">
-        <div [class.selected]="step == 1" class="step">01.<span class="step__title">CUSTOMER INFO</span></div>
-        <div [class.selected]="step == 2" class="step">02.<span class="step__title">SHIPPING INFO</span></div>
-        <div [class.selected]="step == 3" class="step">03.<span class="step__title">PAYMENT METHOD</span></div>
-      </div>
-      <app-checkout-step-one [customerInfo]="customerInfo" (continue)="continue()" *ngIf="step == 1"></app-checkout-step-one>
-      <app-checkout-step-two (continue)="continue()" (back)="back()" *ngIf="step == 2"></app-checkout-step-two>
-      <app-checkout-step-three (back)="back()" *ngIf="step == 3"></app-checkout-step-three>
+        <div class="validating">
+
+          <app-spinner class="spinner"></app-spinner>
+          <span class="loading-text">
+            Please wait... This may take several minutes.
+          </span>
+        </div>
+
+      </ng-template>
+      <ng-template [ngIf]="displaying == 'payment'">
+        <app-pay [transaction]="transaction" ></app-pay>
+      </ng-template>
     </div>
     <div class="order-summary">
       <p class="summary__title">Order Summary</p>
@@ -42,11 +57,10 @@
           <p>Cart Subtotal: <span>{{total | currency}}</span></p>
         </div>
         <div class="summary__shipping">
-          <p>Shipping <span>$50.00</span></p>
-          <span class="shipping-method">Flat Rate - Fixed</span>
+          <p>Shipping <span>{{calculateShipping() !== 0 ? calculateShipping() : 'Not calculated yet'}}</span></p>
         </div>
         <div class="summary__footer">
-          <p>Order Total <span>{{total + 50 | currency}}</span></p>
+          <p>Order Total <span>{{total + calculateShipping() | currency}}</span></p>
         </div>
       </div>
       <div style="width: 100%; height: 400px; display: flex; align-items: center; justify-content: center" *ngIf="loadingCart">

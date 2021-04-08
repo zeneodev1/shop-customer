@@ -1,0 +1,270 @@
+
+
+.step {
+  border: 1px solid #d8e5ef;
+  border-radius: 3px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+
+.step-header {
+  background: #fafbfc;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #d8e5ef;
+}
+
+
+.step-n {
+  background: var(--secondary);
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: -1px 10px -1px -1px;
+}
+
+
+.step-title {
+  font-weight: 500;
+  font-size: 15px;
+}
+
+
+.step-body {
+  padding: 20px 5px;
+}
+
+
+.step-body .shipping-info {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+
+.form-col {
+  padding: 5px;
+}
+
+input.error,
+select.error {
+  border-color: rgba(255, 0, 0, 0.7) !important;
+  background: rgba(255, 0, 0, 0.1);
+}
+
+
+.control-name {
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 5px;
+  display: block;
+  color: #5d5c5c;
+}
+
+.dimensions-form {
+  display: flex;
+}
+
+.form-group input,
+.dimensions-form input {
+  font-size: 14px;
+  padding: 7px 20px;
+  width: 80px;
+  text-align: center;
+}
+
+
+.countries select {
+  font-size: 14px;
+  padding: 7px 20px 7px 7px;
+  border: 1px solid #d8e5ef;
+  border-radius: 3px;
+  transition: 0.2s all;
+}
+
+
+.countries select option {
+  padding: 4px 20px 4px 7px;
+  display: block;
+}
+
+
+.load-type-options .option {
+  padding: 7.5px 18px;
+  display: inline-block;
+  font-size: 14px;
+}
+
+
+.load-type-options .option {
+
+}
+
+
+.dimensions-form input,
+.form-group input,
+.load-type-options .option {
+  border: 1px solid #d8e5ef;
+  border-radius: 3px;
+  transition: 0.2s all;
+}
+
+.load-type-options .option {
+  cursor: pointer;
+}
+
+.dimensions-form input:focus,
+.form-group input:focus,
+.load-type-options .option.selected {
+  border: 1px solid var(--secondary);
+}
+
+.readonly-form-control .control {
+  border: 1px solid #d8e5ef;
+  border-radius: 3px;
+  background: whitesmoke;
+  padding: 7.5px 29px;
+  display: inline-block;
+  font-size: 14px;
+}
+
+.ship-categories {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.ship-categories .category {
+  display: flex;
+  align-items: center;
+  padding: 6px 20px;
+  cursor: pointer;
+}
+
+.ship-categories .category .category-icon {
+  margin-right: 10px;
+}
+
+.ship-categories .category .category-icon svg path {
+  fill: var(--text-primary);
+}
+
+.ship-categories .category {
+  border: 2px solid white;
+  border-radius: 8px;
+}
+
+.ship-categories .category.selected {
+  border: 2px solid var(--secondary);
+  border-radius: 6px;
+}
+
+.ship-categories .category.selected .category-icon svg path,
+.ship-categories .category.selected .category-name {
+  fill: var(--secondary);
+  color: var(--secondary);
+}
+
+.results-modal {
+  position: fixed;
+  top: 85px;
+  left: 0;
+  height: calc(100% - 85px);
+  width: 100%;
+}
+
+.results-modal .results-modal-wrapper {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.results-modal .modal-body {
+  width: 100%;
+  max-width: 700px;
+  height: 100%;
+  max-height: 500px;
+  background: white;
+  border-radius: 4px;
+}
+
+.results-modal .modal-body .loading-wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.results-modal .modal-body .loading-wrapper .spinner {
+  transform: scale(2.3);
+}
+
+.results-modal .modal-body .loading-wrapper .spinner::ng-deep .lds-ring div {
+  border-color: var(--secondary) var(--secondary) transparent transparent!important;
+}
+
+
+.results-header {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  border-bottom: 1px solid #e9e7e7;
+}
+
+.results-header .results-header-title {
+  font-size: 18px;
+  font-weight: 500;
+  margin-right: 7px;
+  color: var(--text-primary);
+}
+
+.results-header .results-header-count {
+  font-size: 15px;
+  color: #858383;
+}
+
+.results-header .close-btn {
+  margin-left: auto;
+}
+
+.results-header .close-btn .material-icons {
+  font-size: 22px;
+  color: #807f7f;
+  cursor: pointer;
+}
+
+.rate {
+  display: flex;
+  align-items: center;
+  padding: 17px 20px;
+  color: var(--text-secondary);
+  border-bottom: 1px solid #e9e7e7;
+}
+
+.rate .rate-mode {
+  font-weight: 800;
+  font-style: italic;
+  font-size: 15px;
+  width: 30%;
+}
+
+.rate .rate-price-range {
+  color: var(--secondary);
+  width: 40%;
+}
+
+.rate .rate-time {
+  width: 30%;
+}

@@ -1,6 +1,10 @@
+import {OrderItem} from './orderItem.model';
+import {Address} from './address.model';
+
 export class Order {
-  id: string | undefined;
-  email: string | undefined;
-  payment: string | undefined;
-  method: string | undefined;
+  id: string;
+  paymentMethod: string;
+  userId: string;
+  orderItems: OrderItem[];
+  address: Address;
 }

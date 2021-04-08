@@ -162,3 +162,20 @@ summary {
     margin-bottom: 0;
   }
 }
+
+.validating {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 320px;
+}
+
+.validating .spinner {
+  transform: scale(1.8);
+  margin-bottom: 20px;
+}
+
+.validating .spinner::ng-deep .lds-ring div {
+  border-color: var(--secondary) var(--secondary) transparent transparent!important;
+}

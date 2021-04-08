@@ -8,6 +8,8 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 export class CheckoutStepThreeComponent implements OnInit {
   @Output()
   back: EventEmitter<void> = new EventEmitter<void>();
+  @Output()
+  checkout: EventEmitter<string> = new EventEmitter<string>();
   paymentMethod: string;
   constructor() {
   }
@@ -29,4 +31,7 @@ export class CheckoutStepThreeComponent implements OnInit {
     this.paymentMethod = method;
   }
 
+  continue(): void {
+    this.checkout.emit(this.paymentMethod);
+  }
 }
